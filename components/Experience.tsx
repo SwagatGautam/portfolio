@@ -7,7 +7,7 @@ export default function Experience() {
     {
       id: 1,
       company: 'GuardWare Australia Pty. Ltd.',
-      position: 'Senior Fullstack Developer',
+      position: 'Fullstack Developer',
       duration: 'Jan 2025 - Present',
       description:
         'Worked on Creating Data Leak Prevention System.',
