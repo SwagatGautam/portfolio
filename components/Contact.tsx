@@ -1,90 +1,113 @@
 'use client';
 
-import { Mail, Linkedin, Github, Twitter } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Mail, Linkedin, Github, ArrowUpRight } from 'lucide-react';
+import Magnetic from './motion/Magnetic';
+
+const socials = [
+  { icon: Github, label: 'GitHub', href: 'https://github.com/SwagatGautam' },
+  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/swagat-gautam-ab0b03185/' },
+  { icon: Mail, label: 'Email', href: 'mailto:swagatgautamm32@gmail.com' },
+];
 
 export default function Contact() {
   return (
-    <footer className="border-t border-border bg-muted/30 py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 md:px-6">
-        <div className="space-y-12">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-primary">Let's Connect</h2>
-            <p className="text-lg text-foreground/70 max-w-2xl">
-              I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!
-            </p>
-          </div>
+    <footer id="contact" className="relative scroll-mt-28 overflow-hidden pt-24 md:pt-32">
+      {/* glow */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-64 max-w-2xl rounded-full bg-accent/20 blur-[120px]" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Contact Methods */}
-            <div className="space-y-4">
-              <h3 className="font-semibold text-primary">Contact Information</h3>
-              <div className="space-y-3">
-                <a
-                  href="mailto:your.email@example.com"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary/10 transition-colors group"
-                >
-                  <Mail className="w-5 h-5 text-accent" />
-                  <span className="text-foreground/80 group-hover:text-foreground">
-                    swagatgautamm32@gmail.com
-                  </span>
-                </a>
-                <div className="text-sm text-foreground/60 px-8">
-                  <p>Response time: Usually within 24 hours</p>
-                </div>
-              </div>
-            </div>
+      <div className="relative mx-auto max-w-4xl px-5 text-center md:px-6">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-4 font-mono text-sm uppercase tracking-widest text-accent"
+        >
+          06 — Let's build something
+        </motion.p>
 
-            {/* Social Links */}
-            <div className="space-y-4">
-              <h3 className="font-semibold text-primary">Follow Me</h3>
-              <div className="flex gap-4">
-                <a
-                  href="https://github.com/SwagatGautam"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-lg bg-muted hover:bg-accent text-muted-foreground hover:text-accent-foreground transition-colors"
-                  title="GitHub"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/swagat-gautam-ab0b03185/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-lg bg-muted hover:bg-accent text-muted-foreground hover:text-accent-foreground transition-colors"
-                  title="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-          </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 24, filter: 'blur(10px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display text-5xl font-bold leading-[1] tracking-tight sm:text-7xl"
+        >
+          Let's create
+          <br />
+          <span className="text-gradient-animated">something great.</span>
+        </motion.h2>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-border">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground"
+        >
+          I'm always open to new projects, collaborations, or just a good conversation.
+          Have an idea? My inbox is open — I usually reply within 24 hours.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+        >
+          <Magnetic>
             <a
               href="mailto:swagatgautamm32@gmail.com"
-              className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium text-center"
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 text-lg font-medium text-background transition-transform hover:scale-105"
             >
-              Send Me an Email
+              Say hello
+              <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
-            <a
-              href="https://www.linkedin.com/in/swagat-gautam-ab0b03185/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors font-medium text-center"
-            >
-              Connect on LinkedIn
-            </a>
-          </div>
-        </div>
+          </Magnetic>
+          <a
+            href="mailto:swagatgautamm32@gmail.com"
+            className="font-mono text-sm text-muted-foreground transition-colors hover:text-accent"
+          >
+            swagatgautamm32@gmail.com
+          </a>
+        </motion.div>
 
-        {/* Footer */}
-        <div className="mt-16 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>
-            © {new Date().getFullYear()} Swagat Gautam. Crafted with React & Next.js.
-          </p>
+        <div className="mt-14 flex items-center justify-center gap-3">
+          {socials.map((s) => (
+            <Magnetic key={s.label} strength={0.5}>
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-border/60 bg-card/40 text-muted-foreground backdrop-blur transition-all hover:border-accent hover:text-accent"
+              >
+                <s.icon className="h-5 w-5" />
+              </a>
+            </Magnetic>
+          ))}
         </div>
+      </div>
+
+      {/* giant name mark */}
+      <div className="relative mt-20 overflow-hidden">
+        <motion.h3
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="select-none whitespace-nowrap text-center font-display text-[18vw] font-bold leading-none tracking-tighter text-foreground/[0.04]"
+        >
+          SWAGAT GAUTAM
+        </motion.h3>
+      </div>
+
+      <div className="border-t border-border/50 py-8">
+        <p className="text-center text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Swagat Gautam · Designed & built with Next.js and Motion.
+        </p>
       </div>
     </footer>
   );

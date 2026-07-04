@@ -1,31 +1,20 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
+const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
+const display = Space_Grotesk({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-display' })
 
 export const metadata: Metadata = {
-  title: 'Swagat Gautam - Fullstack Developer',
-  description: 'Portfolio of Swagat Gautam, a fullstack developer specializing in modern web applications with React, Next.js, and Node.js.',
-  generator: 'v0.app',
+  title: 'Swagat Gautam — Fullstack Developer',
+  description:
+    'Swagat Gautam crafts beautiful, scalable web applications with React, Next.js, Angular, Laravel and .NET. Explore the work of a fullstack developer based in Kathmandu.',
+  generator: 'Next.js',
   icons: {
-    icon: [
-      {
-        url: '/swagat.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/swagat.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/swagat.png',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/swagat.png',
     apple: '/swagat.png',
   },
 }
@@ -36,8 +25,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body
+        className={`${geist.variable} ${geistMono.variable} ${display.variable} font-sans antialiased noise`}
+      >
         {children}
         <Analytics />
       </body>
