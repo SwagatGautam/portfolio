@@ -177,6 +177,7 @@ export default function Hero() {
             {/* floating chips */}
             {[
               { label: 'React', cls: 'left-[-3rem] top-8' },
+              { label: 'Angular', cls: 'left-1/2 -translate-x-1/2 top-[-1.5rem]' },
               { label: 'Next.js', cls: 'right-[-2.5rem] top-24' },
               { label: '.NET', cls: 'left-[-2rem] bottom-16' },
               { label: 'Laravel', cls: 'right-[-3rem] bottom-6' },
