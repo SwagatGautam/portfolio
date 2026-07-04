@@ -98,7 +98,7 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="select-none whitespace-nowrap text-center font-display text-[18vw] font-bold leading-none tracking-tighter text-foreground/[0.04]"
+          className="select-none whitespace-nowrap text-center font-display text-[12.5vw] font-bold leading-none tracking-tighter text-foreground/[0.04]"
         >
           SWAGAT GAUTAM
         </motion.h3>

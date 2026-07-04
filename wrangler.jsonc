@@ -1,0 +1,22 @@
+{
+  // Worker that serves the Next.js static export AND powers the /api/chat AI assistant.
+  // Name MUST match the existing Worker so it deploys to the same project
+  // (and keeps the swagatgautam.com.np custom domain attached).
+  "name": "bold-snow-5dad",
+  "main": "worker/index.ts",
+  "compatibility_date": "2025-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    // Next.js static export ships a 404.html; serve it for unknown paths.
+    "not_found_handling": "404-page",
+    // Only run the Worker first for API routes; everything else is served
+    // straight from static assets (fast, no Worker invocation).
+    "run_worker_first": ["/api/*"]
+  },
+  // Cloudflare Workers AI — powers the chat assistant. No API keys needed.
+  "ai": {
+    "binding": "AI"
+  }
+}
