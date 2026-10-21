@@ -11,4 +11,5 @@ pnpm install
 pnpm dev      # http://localhost:3000
 pnpm build
 pnpm lint
+pnpm typecheck
 ```
