@@ -30,3 +30,4 @@ npx wrangler deploy
 Keep the Worker name in `wrangler.jsonc` as is — it is what keeps the swagatgautam.com.np domain attached.
 
 Run `pnpm typecheck` before deploying.
+Run `pnpm build` locally to confirm the site compiles before `wrangler deploy`.
